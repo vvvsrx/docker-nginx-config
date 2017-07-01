@@ -1,25 +1,23 @@
-version: '2'
-services:
-  nginx-proxy:
-    image: jwilder/nginx-proxy
-    container_name: nginx-proxy
-    restart: always
-    ports:
-      - "80:80"
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
+nginx-proxy:
+  image: jwilder/nginx-proxy
+  container_name: nginx-proxy
+  restart: always
+  ports:
+    - "80:80"
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock:ro
 
-  frps:
-    image: frps_louis
-    container_name: frps
-    restart: always
-    ports:
-      - "17000:17000"
-      - "17500:17500"
-      - "22:22"
-      - "3389:3389"
-      - "10080:10080"
-      - "10443:10443"
-    environment:
-      - VIRTUAL_HOST=www.alipig.cn,www.alipig.com.cn
-      - VIRTUAL_PORT=10080
+frps:
+  image: frps_louis
+  container_name: frps
+  restart: always
+  ports:
+    - "17000:17000"
+    - "17500:17500"
+    - "22:22"
+    - "3389:3389"
+    - "10080:10080"
+    - "10443:10443"
+  environment:
+    - VIRTUAL_HOST=www.alipig.cn
+    - VIRTUAL_PORT=10080
