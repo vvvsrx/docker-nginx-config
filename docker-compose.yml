@@ -4,8 +4,8 @@ nginx-proxy:
   restart: always
   ports:
     - "80:80"
-  volumes:
-    - /var/run/docker.sock:/tmp/docker.sock:ro
+  #volumes:
+  #  - /var/run/docker.sock:/tmp/docker.sock:ro
 
 frps:
   image: frps_louis
